@@ -1,0 +1,17 @@
+:global(html.rane-anxiety) {
+  scroll-behavior: smooth;
+}
+
+:global(html.rane-anxiety body) {
+  filter: saturate(0.92) contrast(0.94);
+}
+
+:global(html.rane-anxiety video),
+:global(html.rane-anxiety img) {
+  filter: saturate(0.93) contrast(0.95);
+}
+
+/* برای جلوگیری از تیز بودن سایه‌ها در اضطراب */
+:global(html.rane-anxiety *) {
+  transition: filter 240ms ease, background-color 240ms ease, color 240ms ease, border-color 240ms ease;
+}

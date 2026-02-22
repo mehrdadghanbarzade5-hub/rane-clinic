@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/*@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}*/
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* =========================
+   RANE Hero SVG Animation
+   ========================= */
+/* =========================
+   RANE Hero SVG Animation (Luxury)
+   ========================= */
+
+.rane-svg {
+  /* تون برند: Teal/Green خیلی ظریف */
+  color: rgba(10, 120, 120, 0.55);
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.06));
+}
+
+.rane-brain,
+.rane-detail,
+.rane-sprout,
+.rane-leaf {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+
+  /* حرکت نرم‌تر و لوکس‌تر */
+  animation: rane-draw 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  /* ظرافت خطوط */
+  opacity: 0.95;
+}
+
+.rane-brain {
+  stroke-width: 9; /* قبلاً 10 */
+  animation-delay: 0.05s;
+}
+
+.rane-detail {
+  stroke-width: 7; /* قبلاً 8 */
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation-duration: 1.05s;
+}
+
+.rane-sprout {
+  stroke-width: 7;
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
+  animation-duration: 0.9s;
+}
+
+.rane-leaf {
+  stroke-width: 7;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation-duration: 0.95s;
+}
+
+/* ترتیب زمانی بهتر */
+.rane-delay-1 { animation-delay: 0.40s; }
+.rane-delay-2 { animation-delay: 0.60s; }
+.rane-delay-3 { animation-delay: 0.78s; }
+.rane-delay-4 { animation-delay: 1.06s; }
+.rane-delay-5 { animation-delay: 1.22s; }
+.rane-delay-6 { animation-delay: 1.35s; }
+
+/* پرشدن خیلی ظریف + ته‌رنگ سبز */
+.rane-fill {
+  animation: rane-fill 1.1s ease forwards;
+  animation-delay: 1.55s;
+}
+
+@keyframes rane-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes rane-fill {
+  to { opacity: 0.06; }
+}
+
+/* احترام به کاربرهای حساس به حرکت */
+@media (prefers-reduced-motion: reduce) {
+  .rane-brain,
+  .rane-detail,
+  .rane-sprout,
+  .rane-leaf,
+  .rane-fill {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+  }
+  .rane-fill { opacity: 0.06 !important; }
+}
