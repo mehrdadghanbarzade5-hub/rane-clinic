@@ -78,9 +78,15 @@ export default function BookingWizard({
 
   // مرحله 2: درمانگر
   const [selectedTherapistId, setSelectedTherapistId] = useState<string | null>(null);
-  const searchParams = useSearchParams();
-  const therapistIdFromUrl = searchParams.get("therapistId");
-  const preselectedTherapistId = therapistIdFromUrl ?? initialTherapistId ?? null;
+  const [therapistIdFromUrl, setTherapistIdFromUrl] = useState<string | null>(null);
+
+useEffect(() => {
+  // فقط سمت کلاینت
+  const sp = new URLSearchParams(window.location.search);
+  setTherapistIdFromUrl(sp.get("therapistId"));
+}, []);
+
+const preselectedTherapistId = therapistIdFromUrl ?? initialTherapistId ?? null;
 
   useEffect(() => {
     if (!preselectedTherapistId) return;
